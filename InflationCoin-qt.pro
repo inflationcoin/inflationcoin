@@ -175,6 +175,10 @@ contains(USE_O3, 1) {
     QMAKE_CFLAGS += -msse2
 }
 
+linux-g++* {
+    QMAKE_LFLAGS += -no-pie
+}
+
 QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -w
 
 
