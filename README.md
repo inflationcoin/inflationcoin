@@ -1,6 +1,6 @@
 InflationCoin - IFLT
 
-InflationCoin is an X11 PoW/PoS coin. It is a coin that integrated with true random super bonus block features. It uses high PoS as a way of coins fairly to the community.
+InflationCoin is an X11 PoW/PoS coin. It is a coin that integrated with true random super bonus block features. It uses high PoS as a way of distributing coins fairly to the community.
 
 - X11 hash algorithm, PoW/PoS mixed
 - 5 transaction confirmations
