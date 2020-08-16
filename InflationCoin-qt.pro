@@ -15,6 +15,20 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 }
 
 
+win32{
+BOOST_LIB_SUFFIX=-mgw63-mt-s-1_64
+BOOST_INCLUDE_PATH=C:/deps/boost_1_64_0
+BOOST_LIB_PATH=C:/deps/boost_1_64_0/stage/lib
+BDB_INCLUDE_PATH=C:/deps/db-6.2.23.NC/build_unix
+BDB_LIB_PATH=C:/deps/db-6.2.23.NC/build_unix
+OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.2l/include
+OPENSSL_LIB_PATH=C:/deps/openssl-1.0.2l
+MINIUPNPC_INCLUDE_PATH=C:/deps/
+MINIUPNPC_LIB_PATH=C:/deps/miniupnpc-1.9
+QRENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.4
+QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
+}
+
 # for boost 1.37, add -mt to the boost libraries
 # use: qmake BOOST_LIB_SUFFIX=-mt
 # for boost thread win32 with _win32 sufix
@@ -71,7 +85,7 @@ contains(USE_UPNP, -) {
     count(USE_UPNP, 0) {
         USE_UPNP=1
     }
-    DEFINES += USE_UPNP=$$USE_UPNP STATICLIB
+    DEFINES += DMINIUPNP_STATICLIB
     INCLUDEPATH += $$MINIUPNPC_INCLUDE_PATH
     LIBS += $$join(MINIUPNPC_LIB_PATH,,-L,) -lminiupnpc
     win32:LIBS += -liphlpapi
@@ -159,6 +173,10 @@ contains(USE_O3, 1) {
 
     QMAKE_CXXFLAGS += -msse2
     QMAKE_CFLAGS += -msse2
+}
+
+linux-g++* {
+    QMAKE_LFLAGS += -no-pie
 }
 
 QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -w
